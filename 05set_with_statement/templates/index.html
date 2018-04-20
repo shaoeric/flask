@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+{#    定义全局变量#}
+    {% set username='eric' %}
+    <p>用户名:{{ username }}</p>
+
+{#定义代码块中的变量。，其余部分不能使用#}
+    {% with class='1班' %}
+        <p>班级：{{ class }}</p>
+    {% endwith %}
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .username-input{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    <table>
+        <tbody>
+            <tr>
+{#                <td>用户名</td>#}
+{#                <td><input type="text" name="username"></td>#}
+{#                使用form渲染 得到相同效果#}
+{#                实际开发很少使用，功能比较鸡肋#}
+                <td>{{ form.username.label }}</td>
+                <td>{{ form.username(class='username-input') }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.remember_me.label }}</td>
+                <td>{{ form.remember_me }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.tags.label }}</td>
+                <td>{{ form.tags }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="提交"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

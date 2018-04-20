@@ -1,0 +1,27 @@
+{% from "macros.html" import input %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宏</title>
+</head>
+<body>
+    <h1>宏</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>用户名：</td>
+                <td>{{ input(name="username") }}</td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>{{ input(name='password', type='password') }}</td>
+            </tr>
+            <tr>
+                <td>{{ input(type='submit', value='提交') }}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

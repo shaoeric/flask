@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% include "common/header.html" %}
+
+    {% block body_block %}
+{#开的接口  可以在其他文件填充，让代码简洁#}
+    {% endblock %}
+
+    {% include "common/foot.html" %}
+</body>
+</html>

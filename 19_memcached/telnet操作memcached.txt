@@ -1,0 +1,61 @@
+### memcached 
+#### telnet 登录memcached
+登录的语法是'telnet 127.0.0.1[ip地址] 11211[端口号]'
+
+常用命令
+1. set: 在memcached中添加一个key->value,如果这个key之前是已经存在过，那么就会替换
+否则就是添加
+'''shell
+>set key 0[是否压缩：0否] 60[过期时间] 4[字符长度(确定的值)]
+>eric
+>STORED
+'''
+
+2.get: 从memcache中获取一个数据 根据key来获取
+'''shell
+get username[key的名称]
+'''
+
+3.add: 给memcached添加键值对，如果memcached已经存在了这个key，那么就添加失败
+'''shell
+>add username 0[是否压缩] 60[过期时间] 7[字符长度]
+>hellooo
+>STORED
+'''
+
+4.delete: 删除memcached中的一个键值对
+'''shell
+>delete username
+>get username
+END(代表没有这个键值对)
+'''
+
+5.flush_all 删除memcached中所有的键值对
+'''
+>flush_all
+'''
+
+6.incr 对数字类型进行增加操作，相加的项都必须是数字类型
+'''
+>set age 0 60 2   # 设置age=20
+>18
+>incr age 2    # 对age增加2
+>get age
+>20
+'''
+
+7.decr 对数字类型进行相减操作
+'''
+>set age 0 60 18
+>18
+>decr age 2
+>get age
+>16
+'''
+
+8.stats 查看memcached状态,一些有意义的参数
+get_hits:get命令命中次数
+get_misses:get命令落空次数
+curr_items: 当前memcached中键值对个数
+total_connections: 从开启到现在总共的连接数
+memcached默认最大的连接数是1024

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#submit-btn').click(function (event) {
+                event.preventDefault();
+                var usernameInput = $("input[name='username']");
+                var username = usernameInput.val();
+
+                var passwordInput = $("input[name='password']");
+                var password = passwordInput.val();
+                $.post({
+                    'url': '/login/',
+                    'data': {
+                        'username': username,
+                        'password': password
+                    },'success': function (data) {
+                        console.log(data);
+                    },'fail': function (error) {
+                        console.log(error);
+                    }
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="submit-btn">立即登录</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
